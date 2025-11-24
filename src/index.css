@@ -39,11 +39,3 @@ body {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
-
-/* Gradient text */
-.gradient-text {
-  background: linear-gradient(135deg, #60a5fa 0%, #a855f7 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
