@@ -309,34 +309,36 @@ const FileUpload = () => {
       </AnimatePresence>
 
       {/* Upload Progress */}
-      <AnimatePresence>
-        {isUploading && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            className="glass rounded-2xl p-6 border border-slate-700/50"
-          >
-            <div className="flex items-center space-x-4">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
-              <div className="flex-1">
-                <p className="text-white font-medium">Mengupload file...</p>
-                <p className="text-slate-400 text-sm">
-                  File besar mungkin membutuhkan waktu beberapa saat
-                </p>
-              </div>
-            </div>
-            
-            {/* Progress bar for large files */}
-            <motion.div
-              initial={{ width: 0 }}
-              animate={{ width: "100%" }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mt-3"
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+<AnimatePresence>
+  {isUploading && (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.8 }}
+      className="glass rounded-2xl p-6 border border-slate-700/50"
+    >
+      <div className="flex items-center space-x-4">
+        {/* Spinner hijau */}
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-500"></div>
+
+        <div className="flex-1">
+          <p className="text-white font-medium">Mengupload file...</p>
+          <p className="text-slate-400 text-sm">
+            File besar mungkin membutuhkan waktu beberapa saat
+          </p>
+        </div>
+      </div>
+
+      {/* Progress bar hijau */}
+      <motion.div
+        initial={{ width: 0 }}
+        animate={{ width: "100%" }}
+        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        className="h-1 bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full mt-3"
+      />
+    </motion.div>
+  )}
+</AnimatePresence>
 
       {/* File Type Support Info */}
       <motion.div

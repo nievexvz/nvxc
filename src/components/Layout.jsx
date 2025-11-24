@@ -1,6 +1,8 @@
 
 import { motion } from 'framer-motion';
 import { Icon } from '@iconify/react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const Layout = ({ children, activeTab, setActiveTab }) => {
   const tabs = [
@@ -20,11 +22,11 @@ const Layout = ({ children, activeTab, setActiveTab }) => {
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl shadow-lg">
+              <div className="p-3 bg-gradient-to-r from-indigo-700 to-blue-600 rounded-2xl shadow-lg">
                 <Icon icon="mdi:cloud-braces" className="w-8 h-8 text-white" />
               </div>
               <div>
-                <h1 className="text-3xl font-bold gradient-text">
+                <h1 className="text-4xl font-bold font-extrabold bg-gradient-to-r from-indigo-500 to-blue-400 bg-clip-text text-transparent">
                   NVX Cloud
                 </h1>
                 <p className="text-slate-400 text-sm">
@@ -63,7 +65,7 @@ const Layout = ({ children, activeTab, setActiveTab }) => {
               whileTap={{ scale: 0.98 }}
               className={`flex items-center space-x-3 px-6 py-4 rounded-xl font-semibold transition-all duration-300 ${
                 activeTab === tab.id
-                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/25'
+                  ? 'bg-gradient-to-r from-indigo-700 to-blue-600 text-white shadow-lg shadow-blue-500/25'
                   : 'text-slate-400 hover:text-white hover:bg-slate-700/50'
               }`}
             >
@@ -85,17 +87,30 @@ const Layout = ({ children, activeTab, setActiveTab }) => {
         </motion.main>
       </motion.div>
 
-      {/* Footer */}
       <motion.footer
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.8 }}
-        className="container mx-auto px-4 py-8 text-center"
+        initial={{ opacity: 0, y: 6 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.8, duration: 0.45 }}
+        className="w-full py-8 flex justify-center text-slate-400"
       >
-        <p className="text-slate-500 text-sm">
-          Powered by GitHub Repository & Gist • Made with ❤️
+        <div className="flex flex-col items-center gap-2 text-sm">
+        {/* Made By */}
+        <p className="flex items-center gap-2">
+          <FontAwesomeIcon icon={faStar} className="w-4 h-4 text-amber-500" />
+          Made by <span className="font-extrabold underline underline-offset-2">NineTwelve</span>
         </p>
-      </motion.footer>
+        {/* Open Source (Clickable <p>) */}
+        <p
+          onClick={() =>
+            window.open("https://github.com/nievexvz/nvxc.git", "_blank")
+          }
+          className="flex items-center gap-2 text-xs text-slate-500 hover:text-slate-300 transition cursor-pointer"
+        >
+          <Icon icon="mdi:github" className="w-4 h-4" />
+          Open Source
+        </p>
+      </div>
+    </motion.footer>
     </div>
   );
 };

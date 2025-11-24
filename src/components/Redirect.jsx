@@ -68,7 +68,7 @@ const Redirect = () => {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-          className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto mb-6 flex items-center justify-center"
+          className="w-16 h-16 bg-gradient-to-r from-indigo-700 to-blue-600 rounded-full mx-auto mb-6 flex items-center justify-center"
         >
           <Icon icon="mdi:link-variant" className="w-8 h-8 text-white" />
         </motion.div>
@@ -81,7 +81,7 @@ const Redirect = () => {
           initial={{ width: 0 }}
           animate={{ width: "100%" }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
-          className="h-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mt-6"
+          className="h-2 bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full mt-6"
         />
       </motion.div>
     </div>
